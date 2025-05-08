@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.wydex.posterapp.PosterappApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 9.350 s -- in com.wydex.posterapp.PosterappApplicationTests

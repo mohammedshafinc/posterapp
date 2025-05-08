@@ -1,0 +1,4 @@
+com\wydex\posterapp\controller\PosterController.class
+com\wydex\posterapp\service\ImageService.class
+com\wydex\posterapp\PosterappApplication.class
+com\wydex\posterapp\controller\HelathCheckController.class
