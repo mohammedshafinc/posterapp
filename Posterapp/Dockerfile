@@ -1,6 +1,14 @@
+# Use a very specific Maven and JDK version
 FROM maven:3.9.6-eclipse-temurin-21 AS build
 
 WORKDIR /app
+
+# Set JAVA_HOME explicitly
+ENV JAVA_HOME=/opt/java/openjdk
+ENV PATH="${JAVA_HOME}/bin:${PATH}"
+
+# Verify Java version
+RUN java -version && mvn -version
 
 # Copy POM first for dependency resolution
 COPY pom.xml .
@@ -11,10 +19,10 @@ RUN mvn dependency:go-offline -B
 # Copy source files
 COPY src ./src
 
-# Package the application
-RUN mvn clean package -DskipTests
+# Build with explicit Java version
+RUN mvn clean package -DskipTests -Dmaven.compiler.release=21
 
-# Runtime stage
+# Runtime stage with specific JDK version
 FROM eclipse-temurin:21.0.2_13-jre-jammy
 
 WORKDIR /app
